@@ -21,7 +21,7 @@ export const deleteTask = createAsyncThunk(
   async (taskId) => {
     await axios.delete(`${API_URL}/api/tasks/${taskId}`);
     return taskId;
-  }
+  },
 );
 
 // Async thunk to create a new task and save it to the API
@@ -32,10 +32,10 @@ export const createTask = createAsyncThunk(
 
     const response = await axios.post(
       `${API_URL}/api/tasks/?format=json`,
-      taskToSave
+      taskToSave,
     );
     return response.data;
-  }
+  },
 );
 
 // Async thunk to update an existing task in the API
@@ -49,7 +49,7 @@ export const updateTask = createAsyncThunk(
       completed,
     });
     return response.data;
-  }
+  },
 );
 
 // Async thunk to toggle the completion status of a task in the API
@@ -62,10 +62,10 @@ export const toggleTaskCompletion = createAsyncThunk(
     };
     const response = await axios.put(
       `${API_URL}/api/tasks/${task.id}`,
-      updatedTask
+      updatedTask,
     );
     return response.data;
-  }
+  },
 );
 
 // Creating the task slice, which includes actions and reducers
@@ -90,7 +90,7 @@ const taskSlice = createSlice({
     //deleteTask reducers
     builder.addCase(deleteTask.fulfilled, (state, action) => {
       state.tasks.results = state.tasks.results.filter(
-        (task) => task.id !== action.payload
+        (task) => task.id !== action.payload,
       );
     });
     builder.addCase(deleteTask.rejected, (state, action) => {
@@ -106,7 +106,7 @@ const taskSlice = createSlice({
     //updateTasks reducers
     builder.addCase(updateTask.fulfilled, (state, action) => {
       const index = state.tasks.results.findIndex(
-        (task) => task.id === action.payload.id
+        (task) => task.id === action.payload.id,
       );
       if (index !== -1) {
         state.tasks.results[index] = action.payload;
@@ -118,7 +118,7 @@ const taskSlice = createSlice({
     //toggleTaskCompletion Tasks reducers
     builder.addCase(toggleTaskCompletion.fulfilled, (state, action) => {
       const index = state.tasks.results.findIndex(
-        (task) => task.id === action.payload.id
+        (task) => task.id === action.payload.id,
       );
       if (index !== -1) {
         state.tasks.results[index] = action.payload;

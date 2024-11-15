@@ -17,7 +17,7 @@ const EditTask = () => {
   const navigate = useNavigate();
 
   const task = useSelector((state) =>
-    state.task.tasks.results.find((task) => task.id === Number(id))
+    state.task.tasks.results.find((task) => task.id === Number(id)),
   );
 
   // useEffect to set the form data when the task is loaded
