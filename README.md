@@ -24,9 +24,13 @@ Installation & Setup:
 - clone the github repository from following link:
   https://github.com/rezasf2010/task-management-app.git
 
-- Install dependencies: After opening the project folder in your terminal, run the following command to install all the necessary packages
+- Install dependencies: After opening the project folder in your terminal, run the following command to install all the necessary packages running following code in terminal:
 
-- Run the development server: Once the installation is complete, run the following command to start the development server:
+npm install
+
+- Run the development server: Once the installation is complete, run the following command to start the development server running following code in terminal:
+
+npm run dev
 
 best regards,
 Reza Saberifard
